@@ -2,19 +2,61 @@ package com.kf;
 
 import javax.lang.model.element.Name;
 import java.util.Arrays;
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
+
+        Scanner userScanner = new Scanner(System.in);
+
         // Create Array to display the 5 books ("The Seamstress", "Cinder", "Invisible Man", "Fahrenheit 451", "Pride & Prejudice")
         Book[] bookArray = new Book[5];
-        bookArray[0] = new Book();
-        bookArray[1] = new Book();
-        bookArray[2] = new Book();
-        bookArray[3] = new Book();
-        bookArray[4] = new Book();
+        bookArray[0] = new Book(301,"270-381978-83-4", "The Seamstress",);
+        bookArray[1] = new Book(302, "270-381978-83-5", "Cinder",);
+        bookArray[2] = new Book(303,"270-381978-83-6", "Invisible Man",);
+        bookArray[3] = new Book(304,"270-381978-83-6", "Fahrenheit 451",);
+        bookArray[4] = new Book(305,"270-381978-83-6", "Pride & Prejudice",);
 
-        for(int i=0; i < bookArray.length; i++);
+        int totalNumOfBooks = bookArray.length;
+
+        int commandInput;
+        do {
+            Thread.sleep(2000);
+            System.out.println("The Store Home Screen");
+            "/t1 - Look Around" +
+                    commandInput = Scanner.nextInt();
+
+
+            //Show Available books
+            //ex:
+            switch (commandInput){
+                case 1:
+                    System.out.println("List all available books");
+                    System.out.println(bookArray.length);
+                    for(int i=0; i < bookArray.length; i++);
+                    if(bookArray[5] == null){
+                        break;
+                    }
+                    System.out.println("ID: %d", "ISBN: %d"
+                            Book[1].bookId;
+                    Book[1].)
+            }
+                        break;
+                 case 2:
+                     System.out.println("List all checked out books");
+                     break;
+
+
+
+
+
+
+
 
 //        Book[] allBooks
+
+        } while(commandInput !=3);
+
 
     }
 }
@@ -77,5 +119,7 @@ public class Main {
             this.checkedOutTo = checkedOutTo;
         }
         // Custom Methods Here
+        checkOut(name)
+
 
     }
