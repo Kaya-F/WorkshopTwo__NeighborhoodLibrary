@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5813e09d-2a5f-43e3-8aca-c60d72ebc99c" name="Changes" comment="">
+    <list default="true" id="5813e09d-2a5f-43e3-8aca-c60d72ebc99c" name="Changes" comment="added book class / properties and constructors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kf/Main.java" afterDir="false" />
     </list>
@@ -47,6 +47,14 @@
       <option name="presentableId" value="Default" />
       <updated>1682089961016</updated>
     </task>
+    <task id="LOCAL-00001" summary="added book class / properties and constructors">
+      <created>1682096636901</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1682096636901</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -59,5 +67,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="added book class / properties and constructors" />
+    <option name="LAST_COMMIT_MESSAGE" value="added book class / properties and constructors" />
   </component>
 </project>
