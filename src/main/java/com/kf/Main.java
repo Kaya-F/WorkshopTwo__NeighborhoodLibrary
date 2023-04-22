@@ -1,59 +1,71 @@
 package com.kf;
 
-import javax.lang.model.element.Name;
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
 
         Scanner userScanner = new Scanner(System.in);
-
-        // Create Array to display the 5 books ("The Seamstress", "Cinder", "Invisible Man", "Fahrenheit 451", "Pride & Prejudice")
+//        userInput = userScanner.next();
+        // Create an Array to display the 5 books ("The Seamstress", "Cinder", "Invisible Man", "Fahrenheit 451", "Pride & Prejudice")
         Book[] bookArray = new Book[5];
-        bookArray[0] = new Book(301,"270-381978-83-4", "The Seamstress",);
-        bookArray[1] = new Book(302, "270-381978-83-5", "Cinder",);
-        bookArray[2] = new Book(303,"270-381978-83-6", "Invisible Man",);
-        bookArray[3] = new Book(304,"270-381978-83-6", "Fahrenheit 451",);
-        bookArray[4] = new Book(305,"270-381978-83-6", "Pride & Prejudice",);
+        //
+        bookArray[0] = new Book(301,"173-2172-234", "The Seamstress",false, null);
+        bookArray[1] = new Book(302, "194-9364-240", "Cinder", false, null);
+        bookArray[2] = new Book(303,"270-3817-883", "Invisible Man", false, null );
+        bookArray[3] = new Book(304,"238-1978-837", "Fahrenheit 451", false, null);
+        bookArray[4] = new Book(305,"381-7838-463", "Pride & Prejudice", false, null);
 
-        int totalNumOfBooks = bookArray.length;
+        int library = bookArray.length;
 
         int commandInput;
+        String userInput;
         do {
-            Thread.sleep(2000);
-            System.out.println("The Store Home Screen");
-            "/t1 - Look Around" +
-                    commandInput = Scanner.nextInt();
-
-
-            //Show Available books
+            //Thread.sleep(2000);
+            System.out.println("The Store Home Screen\n" +
+                    "\t1 - Show Available Books\n" +
+                    "\t2 - Show Checked Out Books\n" +
+                    "\t3 - Exit\n" +
+                    "Enter your command:"
+            );
+            commandInput = userScanner.nextInt();
+            //Show Available books'
             //ex:
-            switch (commandInput){
+            switch(commandInput){
                 case 1:
-                    System.out.println("List all available books");
-                    System.out.println(bookArray.length);
-                    for(int i=0; i < bookArray.length; i++);
-                    if(bookArray[5] == null){
-                        break;
+                    //Listing all available books for user to see
+                    System.out.println("Enter your name: ");
+                    String userName = userScanner.next();
+                    System.out.println("List of all Available Books: ");
+                    for(int i=0; i < bookArray.length; i++){
+                        if(!bookArray[i].getCheckedOut()){
+                            System.out.printf("\tID: %d, ISBN: %s, Book Title: %s\n",
+                                    bookArray[i].getBookId(),
+                                    bookArray[i].getIsbn(),
+                                    bookArray[i].getBookTitle()
+                            );
+                        }
                     }
-                    System.out.println("ID: %d", "ISBN: %d"
-                            Book[1].bookId;
-                    Book[1].)
-            }
-                        break;
-                 case 2:
-                     System.out.println("List all checked out books");
+                  break;
+                case 2:
+                    System.out.println("Enter book ID to check out: ");
+                     int bookId = userScanner.nextInt();
+                     for(int i = 0; i < bookArray.length; i++){
+                         if(bookArray[i].getBookId() == bookId){
+                             if(bookArray[i].getCheckedOut()){
+                                 System.out.println("I'm sorry but this book has already been checked out!");
+                             } else {
+                               bookArray[i].setCheckedOut(true);
+                               bookArray[i].setCheckedOutTo(userName);
+                               System.out.println("Book checked out successfully!");
+                             }
+                             break;
+                         }
+                     }
                      break;
+            }
 
 
-
-
-
-
-
-
-//        Book[] allBooks
 
         } while(commandInput !=3);
 
@@ -62,7 +74,7 @@ public class Main {
 }
 
 
-// Create a book class
+// Create a Book class
     class Book {
     //properties of the books
         public int bookId;
@@ -70,14 +82,18 @@ public class Main {
         public String bookTitle;
         public Boolean isCheckedOut;
         public String checkedOutTo;
+        public void checkOut(String userName){
+            this.isCheckedOut = true;
+            this.checkedOutTo = userName;
+        }
 
     //Constructor(s)
     public Book(int bookId, String isbn, String bookTitle, Boolean isCheckedOut, String checkedOutTo){
         this.bookId = bookId;
         this.isbn = isbn;
         this.bookTitle = bookTitle;
-        this.isCheckedOut = isCheckedOut;
-        this.checkedOutTo = checkedOutTo;
+        this.isCheckedOut = false;
+        this.checkedOutTo = null;
 }
     // Getters and Setters
     public int getBookId() {
@@ -119,7 +135,7 @@ public class Main {
             this.checkedOutTo = checkedOutTo;
         }
         // Custom Methods Here
-        checkOut(name)
+//        checkOut(name)
 
 
     }
