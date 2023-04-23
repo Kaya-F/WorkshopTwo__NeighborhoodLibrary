@@ -16,13 +16,14 @@ public class Main {
         bookArray[3] = new Book(304,"238-1978-837", "Fahrenheit 451", false, null);
         bookArray[4] = new Book(305,"381-7838-463", "Pride & Prejudice", false, null);
 
-        int library = bookArray.length;
+//        int library = bookArray.length;
 
         int commandInput;
         String userInput;
         do {
-            //Thread.sleep(2000);
-            System.out.println("The Store Home Screen\n" +
+            Thread.sleep(2000);
+            System.out.println(
+                    "The Store Home Screen\n" +
                     "\t1 - Show Available Books\n" +
                     "\t2 - Show Checked Out Books\n" +
                     "\t3 - Exit\n" +
@@ -49,25 +50,30 @@ public class Main {
                             );
                         }
                     } //* Book Checkout Process
-                    System.out.println("Enter the ID of the book you want to check out: ");
-                     int bookId = userScanner.nextInt();
-                     for(int i = 0; i < bookArray.length; i++){
-                         if(bookArray[i].getBookId() == bookId){
-                             if(bookArray[i].getCheckedOut()){
-                                 System.out.println("I'm sorry, but this book has already been checked out!");
-                             } else {
-                               bookArray[i].setCheckedOut(true);
-                               bookArray[i].setCheckedOutTo(userName);
-                               System.out.println("Book checked out successfully!");
-                             }
-                              break;
-                         }
-                     }
-                     break;
+                    System.out.println("Enter the ID of the book you want to check out or X to exit: ");
+                    String checkOutOrX = userScanner.next();
+                    if (checkOutOrX.equalsIgnoreCase("X")) {
+                        break;
+                    }
+                        int bookId = userScanner.nextInt();
+                        for (int i = 0; i < bookArray.length; i++) {
+                            if (bookArray[i].getBookId() == bookId) {
+                                if (bookArray[i].getCheckedOut()) {
+
+                                    System.out.println("I'm sorry, but this book has already been checked out!");
+                                } else {
+                                    bookArray[i].setCheckedOut(true);
+                                    bookArray[i].setCheckedOutTo(userName);
+                                    System.out.println("Book checked out successfully!");
+                                }
+                                break;
+                            }
+                        }
+                        break;
 
                 case 2:
                     System.out.println("List of all checked out books: ");
-                    boolean checkedOutBooksAre = false;
+                    boolean noCheckedOutBooks = true;
                     for (int i = 0; i < bookArray.length; i++) {
                         if (bookArray[i] == null) {
                             break;
@@ -79,13 +85,32 @@ public class Main {
                                     bookArray[i].getBookTitle(),
                                     bookArray[i].getCheckedOutTo()
                             );
-                            checkedOutBooksAre = true;
+                            noCheckedOutBooks = false;
                         }
                     }
-                    if (!checkedOutBooksAre) {
-                        System.out.println("No books have been checked out at this time.");
+                    if (noCheckedOutBooks) {
+                        System.out.println("\tNo books have been checked out at this time.");
                     }
-                    break;
+                    System.out.println("Enter the ID of the book you would like to check in today.");
+                    String bookIdOrX = userScanner.next();
+                    if (bookIdOrX.equalsIgnoreCase("X")) {
+                        break;
+                    }
+                    bookId = Integer.parseInt(bookIdOrX);
+                    for(int i = 0; i < bookArray.length; i++){
+                        if(bookArray[i].getBookId() == bookId){
+                            if(bookArray[i].getCheckedOut()){
+                                if(bookArray[i].getCheckedOutTo().equals(userName)) {
+                                    bookArray[i].setCheckedOut(false);
+                                    bookArray[i].setCheckedOutTo(null);
+                                    System.out.println();
+                                }
+                            }
+
+                        }
+
+                    }
+
             }
 
 
