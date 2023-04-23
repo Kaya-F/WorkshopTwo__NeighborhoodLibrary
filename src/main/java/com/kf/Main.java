@@ -34,35 +34,58 @@ public class Main {
             switch(commandInput){
                 case 1:
                     //Listing all available books for user to see
-                    System.out.println("Enter your name: ");
+                    System.out.println("Enter username for access: ");
                     String userName = userScanner.next();
                     System.out.println("List of all Available Books: ");
                     for(int i=0; i < bookArray.length; i++){
-                        if(!bookArray[i].getCheckedOut()){
+                        if(bookArray[i] == null){
+                            break;
+                        }
+                        if (!bookArray[i].getCheckedOut()) {
                             System.out.printf("\tID: %d, ISBN: %s, Book Title: %s\n",
                                     bookArray[i].getBookId(),
                                     bookArray[i].getIsbn(),
                                     bookArray[i].getBookTitle()
                             );
                         }
-                    }
-                  break;
-                case 2:
-                    System.out.println("Enter book ID to check out: ");
+                    } //* Book Checkout Process
+                    System.out.println("Enter the ID of the book you want to check out: ");
                      int bookId = userScanner.nextInt();
                      for(int i = 0; i < bookArray.length; i++){
                          if(bookArray[i].getBookId() == bookId){
                              if(bookArray[i].getCheckedOut()){
-                                 System.out.println("I'm sorry but this book has already been checked out!");
+                                 System.out.println("I'm sorry, but this book has already been checked out!");
                              } else {
                                bookArray[i].setCheckedOut(true);
                                bookArray[i].setCheckedOutTo(userName);
                                System.out.println("Book checked out successfully!");
                              }
-                             break;
+                              break;
                          }
                      }
                      break;
+
+                case 2:
+                    System.out.println("List of all checked out books: ");
+                    boolean checkedOutBooksAre = false;
+                    for (int i = 0; i < bookArray.length; i++) {
+                        if (bookArray[i] == null) {
+                            break;
+                        }
+                        if (bookArray[i].getCheckedOut()) {
+                            System.out.printf("\tID: %d, ISBN: %s, Book Title; %s, Checked out To: %s\n",
+                                    bookArray[i].getBookId(),
+                                    bookArray[i].getIsbn(),
+                                    bookArray[i].getBookTitle(),
+                                    bookArray[i].getCheckedOutTo()
+                            );
+                            checkedOutBooksAre = true;
+                        }
+                    }
+                    if (!checkedOutBooksAre) {
+                        System.out.println("No books have been checked out at this time.");
+                    }
+                    break;
             }
 
 
@@ -76,7 +99,7 @@ public class Main {
 
 // Create a Book class
     class Book {
-    //properties of the books
+    //Properties of the books
         public int bookId;
         public String isbn;
         public String bookTitle;
@@ -135,7 +158,7 @@ public class Main {
             this.checkedOutTo = checkedOutTo;
         }
         // Custom Methods Here
-//        checkOut(name)
+        // checkOut(name)
 
 
     }
