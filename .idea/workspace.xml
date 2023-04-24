@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5813e09d-2a5f-43e3-8aca-c60d72ebc99c" name="Changes" comment="cool beans">
+    <list default="true" id="5813e09d-2a5f-43e3-8aca-c60d72ebc99c" name="Changes" comment="putting in the check in system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/kf/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/kf/Main.java" afterDir="false" />
     </list>
@@ -83,7 +83,14 @@
       <option name="project" value="LOCAL" />
       <updated>1682288480340</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="putting in the check in system">
+      <created>1682298416680</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1682298416680</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -103,6 +110,7 @@
     <MESSAGE value="book checkout process :/" />
     <MESSAGE value="a successful book checkout process" />
     <MESSAGE value="cool beans" />
-    <option name="LAST_COMMIT_MESSAGE" value="cool beans" />
+    <MESSAGE value="putting in the check in system" />
+    <option name="LAST_COMMIT_MESSAGE" value="putting in the check in system" />
   </component>
 </project>
